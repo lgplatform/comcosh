@@ -16,3 +16,13 @@ spring:
         prepStmtCacheSize: 250
         prepStmtCacheSqlLimit: 2048
         useServerPrepStmts: true
+
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    database: 1
+    lettuce:
+      pool:
+        max-active: 10
+        max-idle: 10
+        min-idle: 0
