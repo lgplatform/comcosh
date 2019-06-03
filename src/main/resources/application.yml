@@ -7,7 +7,7 @@ spring:
 
   # MySQL config
   datasource:
-    url: jdbc:mysql://localhost:13306/minsDB
+    url: jdbc:mysql://localhost:3306/minsDB
     username: testUser
     password: test!123123
     hikari:
@@ -23,7 +23,7 @@ spring:
   # Redis config
   redis:
     host: 127.0.0.1
-    port: 16379
+    port: 6379
     database: 1
     lettuce:
       pool:

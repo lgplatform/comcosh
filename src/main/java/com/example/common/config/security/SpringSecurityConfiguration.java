@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -13,6 +14,7 @@ import org.springframework.security.web.session.HttpSessionEventPublisher;
 
 @Configuration
 @EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true)
 public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Autowired
@@ -42,7 +44,7 @@ public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter {
      */
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().mvcMatchers(IGNORE_SECURITY_FILTER_URL_PATTERNS);// 해당 패턴은 security filter 제외
+        web.ignoring().antMatchers(IGNORE_SECURITY_FILTER_URL_PATTERNS);// 해당 패턴은 security filter 제외
     }
 
     /**
@@ -54,12 +56,15 @@ public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
+            .csrf().disable().anonymous()
+
+            .and()
             .formLogin()
-            .loginPage("/v1/basic/login")
-            .defaultSuccessUrl("/v1/basic/main")
-            .loginProcessingUrl("/v1/basic/login/req")
-            .usernameParameter("userId")
-            .usernameParameter("userPw")
+                .loginPage("/v1/basic/login")
+                    .defaultSuccessUrl("/v1/basic/main")
+                    .loginProcessingUrl("/v1/basic/login/req")
+                    .usernameParameter("userId")
+                    .passwordParameter("userPw")
 
             .and()
             .logout()

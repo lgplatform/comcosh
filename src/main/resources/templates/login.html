@@ -10,10 +10,10 @@
 <th:block layout:fragment="content">
     <h1>Login page</h1>
     <form th:action="@{/v1/basic/login/req}" method="post">
-        <label for="username">Username</label>:
-        <input type="text" id="username" name="username" autofocus="autofocus" /> <br />
-        <label for="password">Password</label>:
-        <input type="password" id="password" name="password" /> <br />
+        <label for="userId">Username</label>:
+        <input type="text" id="userId" name="userId" autofocus="autofocus" /> <br />
+        <label for="userPw">Password</label>:
+        <input type="password" id="userPw" name="userPw" /> <br />
         <input type="submit" value="Log in" />
     </form>
 </th:block>
