@@ -7,3 +7,7 @@
 6. Lombok 1.18.8
 7. thymeleaf
 8. Redis 5.0.5
+
+
+**- Spring Security**
+1. .

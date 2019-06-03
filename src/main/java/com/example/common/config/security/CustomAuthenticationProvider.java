@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * Authentication 구현 부분
- * - LDAP을 통한 인증, 자체 안증 서비스에 의한 인증 등의 로직이 작성되는 부분
+ * - LDAP을 통한 인증 or 자체 안증 서비스에 의한 인증 등의 로직이 작성되는 부분
  *
  * @author mins
  */
