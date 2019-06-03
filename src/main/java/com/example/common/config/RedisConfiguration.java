@@ -1,6 +1,5 @@
 package com.example.common.config;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
@@ -23,7 +22,7 @@ public class RedisConfiguration {
     }
 
     /**
-     * redis템플릿
+     * redis 템플릿 spring session에서 사용하는 redis template
      *
      * @return
      */
@@ -38,7 +37,7 @@ public class RedisConfiguration {
     }
 
     /**
-     * app package하위 서비스들에서 사용하는 redis template
+     * global redis template
      *  - redis template 설정
      *
      * @return
