@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class Welcome {
 
 	@GetMapping("/welcome")
-	@Secured(value = {"ADMIN"})
+//	@Secured(value = {"ADMIN"})
 	public String welcomePage(Model model){
 
 		return "welcome";
