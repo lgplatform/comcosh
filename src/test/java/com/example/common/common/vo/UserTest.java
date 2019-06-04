@@ -1,6 +1,7 @@
 package com.example.common.common.vo;
 
-import com.example.common.common.service.dao.UserRepository;
+import com.example.common.service.repository.UserRepository;
+import com.example.common.vo.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,6 @@
-package com.example.common.common.service.dao;
+package com.example.common.service.repository;
 
-import com.example.common.common.vo.User;
+import com.example.common.vo.User;
 import org.springframework.data.repository.CrudRepository;
 
 /**
