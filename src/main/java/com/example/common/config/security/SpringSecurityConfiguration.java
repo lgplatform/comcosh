@@ -20,6 +20,8 @@ public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Autowired
     private CustomAuthenticationProvider customAuthenticationProvider;
 
+    private final String LOGIN_PAGE_URI = "/v1/basic/login";
+
     private String[] IGNORE_SECURITY_FILTER_URL_PATTERNS = {
         "/v1/api/**",
         "/v1/basic/login"
@@ -56,26 +58,18 @@ public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-            .csrf().disable().anonymous()
+            /*.authorizeRequests().anyRequest().authenticated().and().httpBasic()*/
 
-            .and()
-            .formLogin()
-                .loginPage("/v1/basic/login")
-                    .defaultSuccessUrl("/v1/basic/main")
-                    .loginProcessingUrl("/v1/basic/login/req")
-                    .usernameParameter("userId")
-                    .passwordParameter("userPw")
-
-            .and()
+            //.and()
             .logout()
             .logoutUrl("/logout")
-            .logoutSuccessUrl("/v1/basic/login")
+            .logoutSuccessUrl(LOGIN_PAGE_URI)
 
             .and()
             .sessionManagement()
             .sessionCreationPolicy(SessionCreationPolicy.NEVER) //새로운 세션을 생성하지 않음.
             .maximumSessions(1)
-            .expiredUrl("/svc/tree/login");
+            .expiredUrl(LOGIN_PAGE_URI);
     }
 
     @Bean
