@@ -21,7 +21,7 @@ import java.util.List;
  *
  * @author mins
  */
-@Component
+//@Component
 public class CustomAuthenticationProvider implements AuthenticationProvider {
 
     /**
